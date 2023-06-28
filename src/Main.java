@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +6,7 @@ public class Main {
         EmployeeBook.removeContact("Ильин Илья Ильич", 5);
         EmployeeBook.addContact("Пригожин Евгений Викторович", 3, 10000000);
         EmployeeBook.removeContact("Пригожин Иосиф Игоревич", 4);
-        int indexForSalaryChanges = 5;
+        int indexForSalaryChanges = 6;
         EmployeeBook.getEmployee()[EmployeeBook.checkForNull(indexForSalaryChanges)].setSalary(99999.0);
         int indexForUnitChanges = 6;
         EmployeeBook.getEmployee()[EmployeeBook.checkForNull(indexForUnitChanges)].setUnit(20);
