@@ -1,4 +1,3 @@
-
 public class Employee {
     static private int counter = 1;
     private int id;
