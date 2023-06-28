@@ -3,7 +3,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-
         // hard_level
         EmployeeBook.printItAllByUnit();
         EmployeeBook.removeContact("Ильин Илья Ильич", 5);
