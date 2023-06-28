@@ -15,17 +15,16 @@ public class EmployeeBook {
     // hard_difficulty
     public static int checkForNull(int newUnitOrSalary) {
 
-        if (employees[newUnitOrSalary] == null) {
+        if (newUnitOrSalary >= 10 || newUnitOrSalary < 0) {
+            throw new IllegalArgumentException("В массиве нет индекса под введенным номером!");
+        } else if (employees[newUnitOrSalary] == null) {
             throw new IllegalArgumentException("Пустое поле! Изменить данные невозможно!");
         }
         return newUnitOrSalary;
     }
+
     public static Employee[] getEmployee() {
-        Employee[] workers = new Employee[employees.length];
-        for (int i = 0; i < employees.length; i++) {
-            workers[i] = employees[i];
-        }
-        return workers;
+        return employees;
     }
 
     public static void printItAllByUnit() {
