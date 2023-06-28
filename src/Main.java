@@ -25,7 +25,6 @@ public class Main {
         System.out.println("Средняя зарплата составляет: " + mediumSalary);
         EmployeeBook.toStringFio(EmployeeBook.employees);
         //medium_level
-
         double factorForAll = 1.05;
         EmployeeBook.indexItUp(factorForAll, EmployeeBook.employees);
         EmployeeBook.printItAll();
