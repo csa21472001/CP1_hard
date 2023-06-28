@@ -1,4 +1,5 @@
 public class EmployeeBook {
+
     public static Employee[] employees = {
             new Employee("Иванов Иван Иванович", 5, 64665),
             new Employee("Николаев Николай Николаевич", 3, 30000.0),
