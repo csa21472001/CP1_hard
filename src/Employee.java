@@ -6,7 +6,6 @@ public class Employee {
     private String fio;
     private int unit;
 
-
     public Employee(String fio, int unit, double salary) {
         this.fio = fio;
         this.unit = unit;

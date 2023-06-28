@@ -7,7 +7,6 @@ public class Main {
         EmployeeBook.printItAllByUnit();
         EmployeeBook.removeContact("Ильин Илья Ильич", 5);
         EmployeeBook.addContact("Пригожин Евгений Викторович", 3, 10000000);
-//        EmployeeBook.addContact("Пригожин Иосиф Игоревич", 3, 50000000);
         EmployeeBook.removeContact("Пригожин Иосиф Игоревич", 4);
         int indexForSalaryChanges = 5;
         EmployeeBook.getEmployee()[EmployeeBook.checkForNull(indexForSalaryChanges)].setSalary(99999.0);

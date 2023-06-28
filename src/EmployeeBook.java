@@ -20,7 +20,6 @@ public class EmployeeBook {
         }
         return newUnitOrSalary;
     }
-
     public static Employee[] getEmployee() {
         Employee[] workers = new Employee[employees.length];
         for (int i = 0; i < employees.length; i++) {
