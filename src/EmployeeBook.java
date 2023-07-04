@@ -1,34 +1,39 @@
 public class EmployeeBook {
-    public static Employee[] employees = {
-            new Employee("Иванов Иван Иванович", 5, 64665),
-            new Employee("Николаев Николай Николаевич", 3, 30000.0),
-            new Employee("Григорьев Григорий Григорьевич", 4, 39000.0),
-            new Employee("Давыдов Давид Давидович", 5, 50000.0),
-            new Employee("Ильин Илья Ильич", 4, 40000.0),
-            null,
-            new Employee("Коновалова Алефтина Патриковна", 1, 50000.0),
-            new Employee("Заболотная Таисия Моисеевна", 5, 55000.0),
-            new Employee("Молодцов Вячеслав Иннокетьевич", 2, 55000.0),
-            new Employee("Федоров Федор Федорович", 2, 55000.0),
-    };
+    private static int firstUnit = 1;
+    private static int lastUnit = 5;
+    private Employee[] employees;
+
+    public EmployeeBook() {
+        employees = new Employee[10];
+        employees[0] = new Employee("Иванов Иван Иванович", 5, 64665);
+        employees[1] = new Employee("Николаев Николай Николаевич", 3, 30000.0);
+        employees[2] = new Employee("Григорьев Григорий Григорьевич", 4, 39000.0);
+        employees[3] = new Employee("Давыдов Давид Давидович", 5, 50000.0);
+        employees[4] = new Employee("Ильин Илья Ильич", 4, 40000.0);
+        employees[5] = null;
+        employees[6] = new Employee("Коновалова Алефтина Патриковна", 1, 50000.0);
+        employees[7] = new Employee("Заболотная Таисия Моисеевна", 5, 55000.0);
+        employees[8] = new Employee("Молодцов Вячеслав Иннокетьевич", 2, 55000.0);
+        employees[9] = new Employee("Федоров Федор Федорович", 2, 55000.0);
+    }
 
     // hard_difficulty
-    public static int checkForNull(int newUnitOrSalary) {
+    public int checkForNull(int newUnitOrSalary) {
 
         if (newUnitOrSalary >= 10 || newUnitOrSalary < 0) {
-            throw new IllegalArgumentException("В массиве нет индекса под введенным номером!");
+            throw new IllegalArgumentException("В массиве нет указанного индекса!");
         } else if (employees[newUnitOrSalary] == null) {
             throw new IllegalArgumentException("Пустое поле! Изменить данные невозможно!");
         }
         return newUnitOrSalary;
     }
 
-    public static Employee[] getEmployee() {
+    public Employee[] getEmployee() {
         return employees;
     }
 
-    public static void printItAllByUnit() {
-        for (int i = 1; i <= 5; i++) {
+    public void printItAllByUnit() {
+        for (int i = firstUnit; i <= lastUnit; i++) {
             System.out.printf("Сотрудники отдела №%d:\n", i);
             for (int x = 0; x < employees.length; x++) {
                 if (employees[x] == null) {
@@ -41,28 +46,27 @@ public class EmployeeBook {
         System.out.println();
     }
 
-    public static void addContact(String fio, int unit, double salary) {
+    public void addContact(String fio, int unit, double salary) {
         int counter = 0;
-        Employee addEmployee;
+        Employee addEmployee = new Employee(fio, unit, salary);
+        ;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
-                addEmployee = new Employee(fio, unit, salary);
                 employees[i] = addEmployee;
                 System.out.println("Добавлен новый сотрудник: " + employees[i]);
                 break;
             }
             if (employees[i] != null) {
                 counter++;
-                if (counter >= 10) {
+                if (counter >= employees.length) {
                     System.out.println("Нельзя добавить сотрудника, закончилось место");
-                    break;
                 }
             }
         }
 
     }
 
-    public static void removeContact(String fio, int id) {
+    public void removeContact(String fio, int id) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && fio != null) {
                 if (employees[i].getFio().equals(fio) && employees[i].getId() == id) {
@@ -76,7 +80,7 @@ public class EmployeeBook {
     }
 
     // easy_difficulty
-    public static void printItAll() {
+    public void printItAll() {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 System.out.println(employees[i]);
@@ -84,7 +88,7 @@ public class EmployeeBook {
         }
     }
 
-    public static int countItAll() {
+    public int countItAll() {
         int totalSalary = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -94,7 +98,7 @@ public class EmployeeBook {
         return totalSalary;
     }
 
-    public static Employee findMinSalary() {
+    public Employee findMinSalary() {
 
         Employee minSalaryMan = employees[0];
         for (int i = 0; i < employees.length; i++) {
@@ -107,7 +111,7 @@ public class EmployeeBook {
         return minSalaryMan;
     }
 
-    public static Employee findMaxSalary() {
+    public Employee findMaxSalary() {
         Employee maxSalaryMan = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -119,13 +123,13 @@ public class EmployeeBook {
         return maxSalaryMan;
     }
 
-    public static double countMedium() {
+    public double countMedium() {
 //      //  int totalSalary = countItAll();
         return countItAll() / employees.length;
     }
 
     // medium_difficulty
-    public static void indexItUp(double factor, Employee[] employees) {
+    public void indexItUp(double factor, Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 employees[i].setSalary(employees[i].getSalary() * factor);
@@ -134,7 +138,7 @@ public class EmployeeBook {
 
     }
 
-    public static String findInUnitMinSalary(int unit) {
+    public String findInUnitMinSalary(int unit) {
 //      int unit = ThreadLocalRandom.current().nextInt(0, 150 + 1)
 
         int count = 0;
@@ -167,7 +171,7 @@ public class EmployeeBook {
 
     }
 
-    public static Employee findInUnitMaxSalary(int unit) {
+    public Employee findInUnitMaxSalary(int unit) {
         Employee maxSalaryMan = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -181,7 +185,7 @@ public class EmployeeBook {
         return maxSalaryMan;
     }
 
-    public static double findInUnitTotalSalary(int unit) {
+    public double findInUnitTotalSalary(int unit) {
 
         double totalForUnitSalary = 0.0;
         for (int i = 0; i < employees.length; i++) {
@@ -194,7 +198,7 @@ public class EmployeeBook {
         return totalForUnitSalary;
     }
 
-    public static double findInUnitMediumSalary(int unit) {
+    public double findInUnitMediumSalary(int unit) {
 
         int count = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -207,7 +211,7 @@ public class EmployeeBook {
         return findInUnitTotalSalary(unit) / count;
     }
 
-    public static void indexItInUnit(double factor, int unit) {
+    public void indexItInUnit(double factor, int unit) {
 
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -218,7 +222,7 @@ public class EmployeeBook {
         }
     }
 
-    public static void printUnitInfo(int unit) {
+    public void printUnitInfo(int unit) {
         Employee workers = null;
         System.out.printf("Сотрудники отдела: %d\n", unit);
         for (int i = 0; i < employees.length; i++) {
@@ -231,7 +235,7 @@ public class EmployeeBook {
         }
     }
 
-    public static void printEmployeesWithSalaryLowerThan(double wagePoint) {
+    public void printEmployeesWithSalaryLowerThan(double wagePoint) {
 
         System.out.println("Сотрудники с ЗП менее: " + wagePoint);
         for (int i = 0; i < employees.length; i++) {
@@ -243,7 +247,7 @@ public class EmployeeBook {
         }
     }
 
-    public static void printEmployeesWithSalaryNoLessThan(double wagePoint) {
+    public void printEmployeesWithSalaryNoLessThan(double wagePoint) {
 
         System.out.println("Сотрудники с ЗП не менее: " + wagePoint);
         for (int i = 0; i < employees.length; i++) {
@@ -255,11 +259,11 @@ public class EmployeeBook {
         }
     }
 
-    public static void toStringForUnit(Employee employees) {
+    public void toStringForUnit(Employee employees) {
         System.out.println("Id сотрудника - " + employees.getId() + ". ФИО сотрудника - " + employees.getFio() + ". Зарплата - " + employees.getSalary() + ".");
     }
 
-    public static void toStringFio(Employee[] employees) {
+    public void toStringFio(Employee[] employees) {
         System.out.println("Список работников: ");
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -267,4 +271,6 @@ public class EmployeeBook {
             }
         }
     }
+
 }
+
