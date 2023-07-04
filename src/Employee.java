@@ -1,9 +1,10 @@
 public class Employee {
     static private int counter = 1;
-    private int id;
+
     private double salary;
     private String fio;
     private int unit;
+    private int id;
 
     public Employee(String fio, int unit, double salary) {
         this.fio = fio;
