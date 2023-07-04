@@ -67,7 +67,6 @@ public class EmployeeBook {
 
     }
 
-    public void removeContact(String fio, int id) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && fio != null) {
                 if (employees[i].getFio().equals(fio) && employees[i].getId() == id) {

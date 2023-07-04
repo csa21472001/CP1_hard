@@ -1,17 +1,10 @@
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook();
         // hard_level
-        employeeBook.printItAllByUnit();
-        employeeBook.removeContact("Ильин Илья Ильич", 5);
-        employeeBook.addContact("Пригожин Евгений Викторович", 3, 10000000);
-        employeeBook.removeContact("Пригожин Иосиф Игоревич", 4);
-        int indexForSalaryChanges = 6;
-        employeeBook.getEmployee()[employeeBook.checkForNull(indexForSalaryChanges)].setSalary(99999.0);
-        int indexForUnitChanges = 5;
-        employeeBook.getEmployee()[employeeBook.checkForNull(indexForUnitChanges)].setUnit(20);
-        employeeBook.printItAllByUnit();
         //easy_level
         employeeBook.printItAll();
         int totalSalary = employeeBook.countItAll();
