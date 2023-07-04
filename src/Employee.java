@@ -5,7 +5,6 @@ public class Employee {
     private String fio;
     private int unit;
     private int id;
-
     public Employee(String fio, int unit, double salary) {
         this.fio = fio;
         this.unit = unit;

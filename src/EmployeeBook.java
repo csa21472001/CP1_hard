@@ -33,7 +33,6 @@ public class EmployeeBook {
     public Employee[] getEmployee() {
         return employees;
     }
-
     public void printItAllByUnit() {
         for (int i = firstUnit; i <= lastUnit; i++) {
             System.out.printf("Сотрудники отдела №%d:\n", i);
