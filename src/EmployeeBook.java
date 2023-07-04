@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class EmployeeBook {
     private static int firstUnit = 1;

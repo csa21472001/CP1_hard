@@ -1,6 +1,5 @@
 public class Employee {
     static private int counter = 1;
-
     private double salary;
     private String fio;
     private int unit;
